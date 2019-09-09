@@ -1,14 +1,25 @@
+--  Окружные комиссии
 CREATE TABLE OIKS (
-	ID int primary key,
-	name text not null,
+	ID integer primary key,
+	oik_name text not null,
 	url text not null);
 
+-- Территориальные комиссии
 CREATE TABLE TIKS (
-	ID int primary key,
-	FOREIGN KEY(oik) REFERENCES OIKS(ID),
-	name text not null,
+	ID integer primary key,
+	oik integer,
+	tik_name text not null,
 	address TEXT,
-	url TEXT NOT NULL);
+	url TEXT NOT NULL,
+	FOREIGN KEY(oik) REFERENCES OIKS(ID));
 
+-- Участковые комиссии
+CREATE TABLE UIKS (
+	ID integer primary key,
+	tik integer,
+	uik_name text not null,
+	address TEXT,
+	url TEXT NOT NULL,
+	FOREIGN KEY(tik) REFERENCES TIKS(ID));
 
 
