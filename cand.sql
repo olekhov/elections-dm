@@ -6,7 +6,8 @@ CREATE TABLE Candidates (
 	self_nom boolean, -- самовыдвиженец
 	ug boolean, -- поддержан умным голосованием
 	remark text,
-	FOREIGN KEY(party) REFERENCES Parties(ID)
+	party_id integer,
+	FOREIGN KEY(party_id) REFERENCES Parties(ID)
 );
 
 -- Партии
@@ -15,11 +16,6 @@ CREATE TABLE Parties(
 	party_name text not null,
 	code text,
 	remark text);
-
--- Связка Кандидат-Партия
-CREATE TABLE C_Party_Link(
-	candidate_id INTEGER,
-	party_id INTEGER);
 
 -- Связка Кандидат-ОИК
 CREATE TABLE C_OIK_Link(
