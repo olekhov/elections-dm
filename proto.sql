@@ -6,6 +6,7 @@ CREATE TABLE UIK_Protocol (
 	row_name text,
 	row_value integer,
 	row_order integer,
-	dt datetime default);
+	candidate_id integer
+	);
 
 
