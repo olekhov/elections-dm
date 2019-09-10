@@ -14,6 +14,7 @@ db=sqlite3.connect("elec.db")
 
 r=requests.Session()
 r.headers['User-Agent'] = "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:51.0) Gecko/20100101 Firefox/51.0"
+r.keep_alive = False
 c=db.cursor()
 #c.execute("delete from UIK_Protocol;")
 c.execute("select u.uik_name, u.url from UIKS u;")
